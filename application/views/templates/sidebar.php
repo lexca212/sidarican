@@ -68,7 +68,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('perjalanan') ?>" class="nav-link inactive">
+                                    <a href="<?= base_url('perjalanan/data') ?>" class="nav-link inactive">
                                         <i class="fa fa-list nav-icon"></i>
                                         <p>Perjalanan</p>
                                     </a>
