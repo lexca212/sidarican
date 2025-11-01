@@ -62,7 +62,7 @@
                         <li class="nav-item has-treeview menu-open">
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('dashboard/data') ?>" class="nav-link inactive">
+                                    <a href="<?= base_url('dashboard/index') ?>" class="nav-link inactive">
                                         <i class="nav-icon fa fa-home"></i>
                                         <p>Dashboard</p>
                                     </a>
