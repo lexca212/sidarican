@@ -37,6 +37,8 @@
 <script src="<?= base_url('assets/template') ?>/dist/js/demo.js"></script>
 <!-- page script -->
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
     $(function () {
         $("#example1").DataTable({

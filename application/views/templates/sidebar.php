@@ -28,9 +28,9 @@
             </ul>
 
         </nav>
-        <h4>
+        <!-- <h4>
             <marquee behavior="" direction="left">Semangat Sayang</marquee>
-        </h4>
+        </h4> -->
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
@@ -68,7 +68,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('patroli') ?>" class="nav-link inactive">
+                                    <a href="<?= base_url('perjalanan/data') ?>" class="nav-link inactive">
                                         <i class="fa fa-list nav-icon"></i>
                                         <p>Perjalanan</p>
                                     </a>
@@ -139,7 +139,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark"><?= $title ?></h1>
+                            <h1 class="m-0 text-dark">title</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
