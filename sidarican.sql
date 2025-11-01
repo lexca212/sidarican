@@ -238,6 +238,17 @@ VALUES (
         1
     );
 
+--
+-- tanggal_beli untuk tabel `pembelian_bbm`
+--
+ALTER TABLE `pembelian_bbm` ADD tanggal_beli date NOT NULL;
+
+--
+-- id_kendaraan untuk tabel `pembelian_bbm`
+--
+ALTER TABLE `pembelian_bbm` ADD id_kendaraan int(11) NOT NULL;
+
+
 -- --------------------------------------------------------
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */
