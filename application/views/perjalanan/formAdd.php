@@ -31,6 +31,7 @@
                 <label for="tgl_perjalanan">Tanggal Perjalanan</label>
                 <input type="datetime-local" class="form-control" name="tgl_perjalanan" id="tgl_perjalanan" placeholder="Tanggal Perjalanan" >
             </div>
+        </div>
         <div class="card-footer">
             <button id="submit" type="submit" class="btn btn-primary">Submit</button>
         </div>
