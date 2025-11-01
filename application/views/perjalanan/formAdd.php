@@ -22,6 +22,10 @@
             <div class="form-group">
                 <label for="km_awal">Kilometer Awal</label>
                 <input type="number" class="form-control" name="km_awal" id="km_awal" placeholder="Kilometer Awal Sebelum Perjalanan" readonly>
+                <div class="form-group">
+                    <input style="width: 18px; height: 18px; margin-top: 8px" type="checkbox" name="vis_km_awal" id="vis_km_awal">
+                    <span for="vis_km_awal" style="font-size: 12px;">check untuk edit KM awal</span>
+                </div>
             </div>
             <div class="form-group">
                 <label for="km_akhir">Kilometer Akhir</label>
@@ -83,5 +87,16 @@ document.getElementById('km_akhir').addEventListener('blur', function() {
         });
         this.value = ''; 
     }
+});
+</script>
+<script>
+$(document).ready(function(){
+    $('#vis_km_awal').change(function(){
+        if($(this).is(':checked')){
+            $('#km_awal').prop('readonly', false);
+        } else {
+            $('#km_awal').prop('readonly', true);
+        }
+    });
 });
 </script>
