@@ -20,6 +20,23 @@ class M_perjalanan extends CI_Model
     $query = $this->db->get();
     return $query->result();
   }
+
+  public function get_km_akhir_terakhir($id_kendaraan)
+  {
+      $this->db->select('km_akhir');
+      $this->db->from('perjalanan');
+      $this->db->where('id_kendaraan', $id_kendaraan);
+      $this->db->order_by('tgl_perjalanan', 'DESC');
+      $this->db->limit(1);
+
+      $query = $this->db->get();
+
+      if($query->num_rows() > 0){
+          return $query->row()->km_akhir;
+      } else {
+          return 0; 
+      }
+  }
 }
 
 /* End of file Perjalanan.php */
