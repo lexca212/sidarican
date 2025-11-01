@@ -9,7 +9,7 @@
         <b>Version</b> 3.0.5
     </div>
     <strong>Copyright &copy; <?php echo date('Y'); ?> <a href="https://web.digixcal.site">PT.CAHAYA MULTI DIGITAL
-        </a>.</strong> made with love by Lexca Helga.
+        </a>.</strong> made with 🔥 by Lexca Helga.
 </footer>
 
 <!-- Control Sidebar -->

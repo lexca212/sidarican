@@ -34,10 +34,10 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
-                <img src="<?= base_url('assets/template') ?> /dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+            <a href="#" class="brand-link">
+                <img src="<?= base_url('assets/template/') ?>dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Satpam</span>
+                <span class="brand-text font-weight-light">SIDARMINI</span>
             </a>
 
             <!-- Sidebar -->
@@ -49,7 +49,7 @@
                             class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="<?= base_url('rubah/edit')?>" class="d-block">ujser</a>
+                        <a href="<?= base_url('rubah/edit')?>" class="d-block"><?= $user ?></a>
                     </div>
                 </div>
 
@@ -62,7 +62,7 @@
                         <li class="nav-item has-treeview menu-open">
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('dashboard/data') ?>" class="nav-link inactive">
+                                    <a href="<?= base_url('dashboard') ?>" class="nav-link inactive">
                                         <i class="nav-icon fa fa-home"></i>
                                         <p>Dashboard</p>
                                     </a>
@@ -74,7 +74,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('tamu') ?>" class="nav-link inactive">
+                                    <a href="<?= base_url('pembelianbbm') ?>" class="nav-link inactive">
                                         <i class="fa fa-user nav-icon"></i>
                                         <p>Pembelian BBM</p>
                                     </a>
@@ -89,15 +89,15 @@
                                     <a href="#" class="nav-link">
                                         <i class="nav-icon fas fa-eye"></i>
                                         <p>
-                                            CCTV
+                                            Master Data
                                             <i class="right fas fa-angle-left"></i>
                                         </p>
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="<?= base_url('cctv'); ?>" class="nav-link">
+                                            <a href="<?= base_url('admin/masterbbm'); ?>" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
-                                                <p>Data CCtv</p>
+                                                <p>BBM Kendaraan</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -138,7 +138,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">title</h1>
+                            <h1 class="m-0 text-dark"><?= $title ?></h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">

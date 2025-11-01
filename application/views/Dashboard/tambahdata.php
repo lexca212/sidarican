@@ -8,23 +8,29 @@
         <div class="card-body">
             <div class="form-group">
                 <label for="exampleInputEmail1">Nama Kendaraan</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                <input type="text" name="nm_kendaraan" class="form-control" id="exampleInputEmail1" placeholder="Nama Kendaraan" required>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Merk Kendaraan</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <input type="text" name="merk_kendaraan" class="form-control" id="exampleInputPassword1" placeholder="Merk kendaraan" required>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Nopol Kendaraan</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                <input type="text" name="nopol_kendaraan" class="form-control" id="exampleInputEmail1" placeholder="conoth : AD 1234 GGG" required>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">BBM Kendaraan</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <!-- <label for="exampleInputPassword1">BBM Kendaraan</label>
+                <input type="text" name="bbm_kendaraan" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
+            <label for="bbm">BBM Kendaraan</label>
+                <select name="bbm_kendaraan" id="bbm_kendaraan" class="form-control" aria-placeholder="BBM KENDARAAN">
+                    <?php foreach ($bbm as $b) {?>
+                <option value="<?= $b->kd_bbm ?>"><?= $b->nama_bbm ?></option>
+                        <?php }?>
+            </select>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Tahun Kendaraan</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <input type="text" name="tahun_kendaraan" class="form-control" id="exampleInputPassword1" placeholder="2029">
             </div>
             <!-- tidak usah -->
             <!-- <div class="form-group">

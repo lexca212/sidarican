@@ -3,7 +3,7 @@
          <!-- <h3 class="card-title">DataTable with default features</h3> -->
 
          <!-- <button type="button" class="btn btn-primary btn-sm">Tambah</button> -->
-         <a href="<?= site_url('dashboard/tambah') ?>" class="btn btn-primary btn-sm">Tambah Data</a>
+         <a href="<?= site_url('pembelianbbm/tambah') ?>" class="btn btn-primary btn-sm">Tambah Data</a>
 
      </div>
      <!-- /.card-header -->
@@ -20,16 +20,7 @@
              </thead>
 
              <tbody>
-                 <?php foreach ($data as $d) { ?>
-                     <tr>
-                         <td><?= $d->nm_kendaraan; ?></td>
-                         <td><?= $d->merk_kendaraan ?>
-                         </td>
-                         <td><?= $d->nopol_kendaraan ?></td>
-                         <td> <?= $d->nama_bbm ?></td>
-                         <td><?= $d->tahun_kendaraan ?></td>
-                     </tr>
-                 <?php } ?>
+                 
              </tbody>
 
          </table>
