@@ -276,6 +276,29 @@ ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
+--
+-- Struktur dari tabel `perjalanan`
+--
+
+CREATE TABLE 'perjalanan' (
+  'id_perjalanan' int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  'tujuan' varchar(255) NOT NULL,
+  'tgl_perjalanan' datetime NOT NULL,
+  'km_awal' int(11) NOT NULL,
+  'km_akhir' int(11),
+  'id_kendaraan' int(11) NOT NULL,
+  FOREIGN KEY (id_kendaraan) REFERENCES data_kendaraan('id_kendaraan')
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `data_kendaraan`
+--
+
+INSERT INTO `perjalanan` (`id_perjalanan`, `tujuan`, `tgl_perjalanan`, `km_awal`, `km_akhir`, `id_kendaraan`) VALUES
+(1, 'kidul alun-alun', '17-08-1945', 170840, 311025, 1);
+
+-- --------------------------------------------------------
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
