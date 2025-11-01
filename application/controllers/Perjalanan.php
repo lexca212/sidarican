@@ -12,6 +12,7 @@ class Perjalanan extends CI_Controller {
     {
         $data['data'] = $this->M_perjalanan->ambil_data_dengan_kendaraan();
         $data['title'] = 'Data Perjalanan';
+        $data['user'] = $this->session->userdata('nama');
 
         // var_dump($data);
         // die(); // Debugging line to check data
@@ -27,6 +28,7 @@ class Perjalanan extends CI_Controller {
     {
         $data['kendaraan'] = $this->M_dashboard->ambil_data();
         $data['title'] = 'Tambah Data Perjalanan';
+        $data['user'] = $this->session->userdata('nama');
 
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar', $data);
@@ -64,7 +66,19 @@ class Perjalanan extends CI_Controller {
             'id_kendaraan' => $id_kendaraan
         );
 
-        $this->db->insert('perjalanan', $data);
+        $insert = $this->db->insert('perjalanan', $data);
+
+        if($insert) {
+            echo"<script> 
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: 'Data Perjalanan berhasil disimpan',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                </script>";
+        }
 
         redirect('perjalanan/data');
     }
