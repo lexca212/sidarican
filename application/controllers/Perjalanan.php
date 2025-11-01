@@ -6,6 +6,8 @@ class Perjalanan extends CI_Controller {
         parent::__construct();
         $this->load->model('M_perjalanan');
         $this->load->model('M_dashboard');
+
+        check_sesi();
     }
 
     public function data()
