@@ -17,6 +17,7 @@
                      <th>BBM</th>
                      <th>Tahun</th>
                      <th>Gambar Kartu</th>
+                     <th>Aksi</th>
                  </tr>
              </thead>
 
@@ -33,6 +34,16 @@
                             <a href="<?= base_url('uploads/kartu_subsidi/') . $d->gambar_subsidi ?>" target="_blank">
                                 <img src="<?= base_url('uploads/kartu_subsidi/') . $d->gambar_subsidi ?>" alt="Luput" width="70">
                             </a>
+                         </td>
+                         <td>
+                            <a href="#" class="btn btn-secondary btn-sm">
+                                <i class="far fa-edit"></i>
+                            </a>
+                            <a href="#" class="btn btn-warning btn-sm">
+                                <i class="fa fa-trash"></i>
+                            </a>
+
+
                          </td>
                      </tr>
                  <?php } ?>
