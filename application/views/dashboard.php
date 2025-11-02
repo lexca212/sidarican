@@ -29,6 +29,11 @@
                          <td><?= $d->nopol_kendaraan ?></td>
                          <td> <?= $d->nama_bbm ?></td>
                          <td><?= $d->tahun_kendaraan ?></td>
+                         <td>
+                            <a href="<?= base_url('uploads/kartu_subsidi/') . $d->gambar_subsidi ?>" target="_blank">
+                                <img src="<?= base_url('uploads/kartu_subsidi/') . $d->gambar_subsidi ?>" alt="Luput" width="70">
+                            </a>
+                         </td>
                      </tr>
                  <?php } ?>
              </tbody>
