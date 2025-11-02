@@ -70,7 +70,19 @@ class Pembelianbbm extends CI_Controller {
             'jml_harga_bbm' => $jml_harga_bbm
         );
 
-        $this->db->insert('pembelian_bbm', $data);
+        $insert = $this->db->insert('pembelian_bbm', $data);
+
+        if ($insert) {
+            $this->session->set_flashdata('notif', [
+                'type' => 'success',
+                'message' => 'Data pembelian BBM berhasil disimpan!'
+            ]);
+        } else {
+            $this->session->set_flashdata('notif', [
+                'type' => 'error',
+                'message' => 'Gagal menyimpan data pembelian BBM.'
+            ]);
+        }
 
         redirect('pembelianbbm');
     }

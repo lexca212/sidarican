@@ -38,3 +38,16 @@
      <!-- /.card-body -->
  </div>
  <!-- /.card -->
+
+ <?php if ($this->session->flashdata('notif')) { ?>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Swal.fire({
+            icon: '<?= $this->session->flashdata('notif')['type'] ?>',
+            title: '<?= ucfirst($this->session->flashdata('notif')['type']) ?>',
+            text: '<?= $this->session->flashdata('notif')['message'] ?>',
+            showConfirmButton: false,
+            timer: 2000
+        });
+    </script>
+<?php } ?>

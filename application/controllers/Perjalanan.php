@@ -70,16 +70,16 @@ class Perjalanan extends CI_Controller {
 
         $insert = $this->db->insert('perjalanan', $data);
 
-        if($insert) {
-            echo"<script> 
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Success',
-                        text: 'Data Perjalanan berhasil disimpan',
-                        showConfirmButton: false,
-                        timer: 2000
-                    });
-                </script>";
+        if ($insert) {
+            $this->session->set_flashdata('notif', [
+                'type' => 'success',
+                'message' => 'Data perjalanan berhasil disimpan!'
+            ]);
+        } else {
+            $this->session->set_flashdata('notif', [
+                'type' => 'error',
+                'message' => 'Gagal menyimpan data perjalanan.'
+            ]);
         }
 
         redirect('perjalanan/data');
