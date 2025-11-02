@@ -44,12 +44,15 @@ class Dashboard extends CI_Controller {
 
     public function simpan(){
 
+        $gambar = $this->gambar();
+
         $data = [
             'nm_kendaraan' => $this->input->post('nm_kendaraan'),
             'merk_kendaraan' => $this->input->post('merk_kendaraan'),
             'nopol_kendaraan' => $this->input->post('nopol_kendaraan'),
             'kd_bbm' => $this->input->post('bbm_kendaraan'),
-            'tahun_kendaraan' => $this->input->post('tahun_kendaraan')
+            'tahun_kendaraan' => $this->input->post('tahun_kendaraan'),
+            'gambar_subsidi' => $gambar
         ];
 
         $insert = $this->M_dashboard->simpan($data);
@@ -68,4 +71,41 @@ class Dashboard extends CI_Controller {
 
         redirect('dashboard');
     }
+
+    private function gambar()
+        {
+                $config['upload_path']          = './uploads/kartu_subsidi';
+                $config['allowed_types']        = 'gif|jpg|png';
+                $config['max_size']             = 10240;
+                $config['max_width']            = 1024;
+                $config['max_height']           = 768;
+                $config['encrypt_name']         = true;
+
+                $this->load->library('upload', $config);
+
+                if ($this->upload->do_upload('gambar'))
+                {
+                    $upload = $this->upload->data();
+
+                    return $upload['file_name'];
+                }else{
+                    echo $this->upload->display_errors();
+                    return null;
+                };
+
+                // if ( ! $this->upload->do_upload('gambar'))
+                // {
+                //         echo $this->upload->display_errors();
+                //         return NULL;
+                // }
+                // else
+                // {
+                //         $upload = $this->upload->data();
+                //         return $upload['file_name'];
+
+                //         // $this->load->view('upload_success', $data);
+                //         // redirect('dashboard');
+                // };
+            }
+        
 }

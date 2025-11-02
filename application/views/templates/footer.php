@@ -24,6 +24,9 @@
 <script src="<?= base_url('assets/template') ?>/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="<?= base_url('assets/template') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="<?= base_url('assets/template') ?>/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
 <!-- DataTables -->
 <script src="<?= base_url('assets/template') ?>/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= base_url('assets/template') ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -38,6 +41,12 @@
 <!-- page script -->
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+  bsCustomFileInput.init();
+});
+</script>
+
 
 <script>
     $(function () {

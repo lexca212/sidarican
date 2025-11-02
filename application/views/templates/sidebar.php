@@ -80,7 +80,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item has-treeview">
-                                    <a href="<?= base_url('surat') ?>" class="nav-link inactive">
+                                    <a href="#" class="nav-link inactive">
                                         <i class="fa fa-inbox nav-icon"></i>
                                         <p>Data Service Kendaraan
                                             <i class="right fas fa-angle-left"></i>
