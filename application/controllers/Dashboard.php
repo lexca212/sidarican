@@ -52,9 +52,20 @@ class Dashboard extends CI_Controller {
             'tahun_kendaraan' => $this->input->post('tahun_kendaraan')
         ];
 
-        $this->M_dashboard->simpan($data);
-        echo "<script>alert('Berhasil Hore!!');
-            window.location.href='" . site_url('dashboard') . "';
-            </script>";
+        $insert = $this->M_dashboard->simpan($data);
+        
+        if ($insert) {
+            $this->session->set_flashdata('notif', [
+                'type' => 'success',
+                'message' => 'Data kendaraan berhasil disimpan!'
+            ]);
+        } else {
+            $this->session->set_flashdata('notif', [
+                'type' => 'error',
+                'message' => 'Gagal menyimpan data kendaraan.'
+            ]);
+        }
+
+        redirect('dashboard');
     }
 }
