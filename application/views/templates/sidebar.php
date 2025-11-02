@@ -79,11 +79,31 @@
                                         <p>Pembelian BBM</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item has-treeview">
                                     <a href="<?= base_url('surat') ?>" class="nav-link inactive">
                                         <i class="fa fa-inbox nav-icon"></i>
-                                        <p>Data Service Kendaraan</p>
+                                        <p>Data Service Kendaraan
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                        
                                     </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('service/perawatan') ?>" class="nav-link">
+                                                <i class="far fa-gear nav-icon"></i>
+                                                    <p>Perawatan Kendaraan</p>
+                                                </i>
+                                                
+                                            </a>
+                                        </li>
+                                         <li class="nav-item">
+                                            <a href="<?= base_url('service/perawatan') ?>" class="nav-link">
+                                                <i class="far fa-automobile nav-icon"></i>
+                                                <p>Ganti Oli</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
                                 </li>
                                 <hr>
                                 <li class="nav-item has-treeview">
