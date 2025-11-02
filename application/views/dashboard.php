@@ -39,7 +39,7 @@
                             <a href="#" class="btn btn-secondary btn-sm">
                                 <i class="far fa-edit"></i>
                             </a>
-                            <a href="#" class="btn btn-warning btn-sm">
+                            <a href="<?= base_url('dashboard/hapus/') . $d->id_kendaraan ?>" class="btn btn-warning btn-sm">
                                 <i class="fa fa-trash"></i>
                             </a>
 

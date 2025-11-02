@@ -47,7 +47,7 @@ class Dashboard extends CI_Controller {
         $gambar = $this->gambar();
 
         $data = [
-            'nm_kendaraan' => $this->input->post('nm_kendaraan'),
+            'nm_kendaraan' => strtoupper($this->input->post('nm_kendaraan')),
             'merk_kendaraan' => $this->input->post('merk_kendaraan'),
             'nopol_kendaraan' => $this->input->post('nopol_kendaraan'),
             'kd_bbm' => $this->input->post('bbm_kendaraan'),
@@ -75,7 +75,7 @@ class Dashboard extends CI_Controller {
     private function gambar()
         {
                 $config['upload_path']          = './uploads/kartu_subsidi';
-                $config['allowed_types']        = 'gif|jpg|png';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg';
                 $config['max_size']             = 10240;
                 $config['max_width']            = 1024;
                 $config['max_height']           = 768;
@@ -106,6 +106,11 @@ class Dashboard extends CI_Controller {
                 //         // $this->load->view('upload_success', $data);
                 //         // redirect('dashboard');
                 // };
+            }
+
+            public function hapus($id){
+                $this->M_dashboard->hapus($id);
+                redirect('dashboard');
             }
         
 }

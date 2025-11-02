@@ -27,6 +27,12 @@ class M_dashboard extends CI_Model
     {
         return $this->db->insert('data_kendaraan', $data);
     }
+
+    public function hapus($id)
+    {
+        return $this->db->where('id_kendaraan', $id
+        )->delete('data_kendaraan');
+    }
 }
 
 /* End of file Dashboard.php */
