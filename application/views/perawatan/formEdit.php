@@ -47,7 +47,7 @@ document.getElementById('tgl_perawatan').addEventListener('blur', function() {
         Swal.fire({
             icon: 'error',
             title: 'Tanggal tidak valid',
-            text: 'Tanggal perjalanan tidak boleh melebihi tanggal hari ini!',
+            text: 'Tanggal perawatan tidak boleh melebihi tanggal hari ini!',
         });
         this.value = "<?= $perawatan->tgl_perawatan ?>";
     }
