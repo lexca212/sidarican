@@ -37,34 +37,38 @@ class Perawatan extends CI_Controller {
 
     public function simpan()
     {
-        $id_kendaraan = $this->input->post('id_kendaraan');
-        $tgl_perawatan = $this->input->post('tgl_perawatan');
-        $biaya = $this->input->post('biaya');
-        $keterangan = $this->input->post('keterangan');
+        $id_perawatan   = $this->input->post('id_perawatan');
+        $id_kendaraan   = $this->input->post('id_kendaraan');
+        $tgl_perawatan  = $this->input->post('tgl_perawatan');
+        $biaya          = $this->input->post('biaya');
+        $keterangan     = $this->input->post('keterangan');
 
-        $data = array(
-            'id_kendaraan' => $id_kendaraan,
+        $data = [
+            'id_kendaraan'  => $id_kendaraan,
             'tgl_perawatan' => $tgl_perawatan,
-            'biaya' => $biaya,
-            'keterangan' => $keterangan,
-        );
+            'biaya'         => $biaya,
+            'keterangan'    => $keterangan,
+        ];
 
-        $insert = $this->db->insert('perawatan_kendaraan', $data);
+        $exists = $this->db
+            ->where('id_perawatan', $id_perawatan)
+            ->get('perawatan_kendaraan')
+            ->num_rows() > 0;
 
-        if ($insert) {
-            $this->session->set_flashdata('notif', [
-                'type' => 'success',
-                'message' => 'Data Perawatan berhasil disimpan!'
-            ]);
-        } else {
-            $this->session->set_flashdata('notif', [
-                'type' => 'error',
-                'message' => 'Gagal menyimpan data perawatan.'
-            ]);
-        }
+        $success = $exists
+            ? $this->db->where('id_perawatan', $id_perawatan)->update('perawatan_kendaraan', $data)
+            : $this->db->insert('perawatan_kendaraan', $data);
+
+        $this->session->set_flashdata('notif', [
+            'type'    => $success ? 'success' : 'error',
+            'message' => $success
+                ? ($exists ? 'Data Perawatan berhasil diperbarui!' : 'Data Perawatan berhasil disimpan!')
+                : ($exists ? 'Gagal memperbarui data perawatan.' : 'Gagal menyimpan data perawatan.')
+        ]);
 
         redirect('perawatan');
     }
+
 
     public function hapus($id)
     {
@@ -85,5 +89,18 @@ class Perawatan extends CI_Controller {
         
         redirect('perawatan');
     
+    }
+
+    public function edit($id)
+    {
+      $data['kendaraan'] = $this->M_dashboard->ambil_data();
+      $data['perawatan'] = $this->db->get_where('perawatan_kendaraan', ['id_perawatan' => $id])->row();
+      $data['title'] = 'Edit Data Perawatan';
+      $data['user'] = $this->session->userdata('nama');
+
+      $this->load->view('templates/header');
+      $this->load->view('templates/sidebar', $data);
+      $this->load->view('perawatan/formEdit', $data);
+      $this->load->view('templates/footer');
     }
 }

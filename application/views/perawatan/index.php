@@ -23,7 +23,7 @@
                         <td><?= $p->keterangan; ?></td>
                         <td>Rp <?= $p->biaya ?></td>
                         <td class="text-center">
-                          <a href="#" class="btn btn-warning btn-sm">
+                          <a href="<?= base_url('perawatan/edit/') . $p->id_perawatan ?>" class="btn btn-warning btn-sm">
                               <i class="far fa-edit"></i>
                           </a> |
                           <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-hapus" data-url="<?= base_url('perawatan/hapus/') . $p->id_perawatan ?>">
