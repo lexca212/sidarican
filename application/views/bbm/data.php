@@ -4,7 +4,7 @@
 
          <!-- <button type="button" class="btn btn-primary btn-sm">Tambah</button> -->
          <a href="<?= site_url('pembelianbbm/tambah') ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tambah Data</a>
-<a href="<?= site_url('pembelianbbm/laporan') ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Laporan</a>
+<a href="<?= site_url('pembelianbbm/laporan') ?>" class="btn btn-success btn-sm"><i class="fa fa-list"></i> Laporan</a>
      </div>
      <!-- /.card-header -->
      <div class="card-body">
