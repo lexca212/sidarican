@@ -86,4 +86,96 @@ class Pembelianbbm extends CI_Controller {
 
         redirect('pembelianbbm');
     }
+
+    public function laporan(){
+        $data['title']  = 'Laporan Bulanan Pembelian BBM';
+        $data['user']   =  $this->session->userdata('nama');
+        $data['kendaraan'] = $this->M_pembelianbbm->data_kendaraan();
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('bbm/filter', $data);
+        $this->load->view('templates/footer');
+        
+        
+    }
+
+    public function filter()
+    {
+        $tgl_awal = $this->input->post('tgl_awal');
+        $tgl_akhir  = $this->input->post('tgl_akhir');
+        $kendaraan  = $this->input->post('nm_kendaraan');
+
+        // $join =
+        $this->db->select('pembelian_bbm.*, data_kendaraan.*');
+        $this->db->from('pembelian_bbm');
+        $this->db->join('data_kendaraan', 'pembelian_bbm.id_kendaraan=data_kendaraan.id_kendaraan');
+        $this->db->where('pembelian_bbm.tanggal_beli >=', $tgl_awal);
+        $this->db->where('pembelian_bbm.tanggal_beli <=', $tgl_akhir);
+        $this->db->where('pembelian_bbm.id_kendaraan', $kendaraan);
+        $query = $this->db->get();
+
+
+        //$query = $this->db->where(['tanggal_beli >=' => $tgl_awal, 'tanggal_beli <=' => $tgl_akhir, 'id_kendaraan' => $kendaraan]);
+        //$hasilquery = $query->get('pembelian_bbm')->row();
+
+        $jumlah = $this->db->select_sum('jml_harga_bbm')->where(['tanggal_beli >=' => $tgl_awal, 'tanggal_beli <=' => $tgl_akhir, 'id_kendaraan' => $kendaraan])->get('pembelian_bbm');
+        //$total = $hasilquery->jml_harga_bbm * $jumlah;
+        $cek = $this->db->get_where('laporan_transaksi', [
+            'bulan' => $this->nama_bulan($tgl_awal)
+        ]);
+
+        
+        if(!$cek->num_rows() > 0){
+            $insert = [
+                'tgl_awal' => $tgl_awal,
+                'tgl_akhir' => $tgl_akhir,
+                'bulan' => $this->nama_bulan($tgl_awal),
+                'id_kendaraan' => $kendaraan,
+                'total' => $jumlah->row()->jml_harga_bbm
+            ];
+
+             $this->db->insert('laporan_transaksi', $insert);
+        }else{
+            redirect('pembelianbbm');
+        }
+
+        
+        $data['tgl_awal'] = $tgl_awal;
+        $data['tgl_akhir'] = $tgl_akhir;
+        $data['bulan']  = $this->nama_bulan($tgl_akhir);
+        $data['hasil'] = $query->result();
+        $data['total'] = $jumlah->row()->jml_harga_bbm;
+
+        $this->load->view('templates/header');
+        $this->load->view('bbm/hasil', $data, FALSE);
+        //$this->load->view('templates/footer');
+        
+        
+
+
+    }
+
+    private function nama_bulan($tanggal)
+    {
+        $bulan = [
+            '1' => 'JANUARI',
+            '2' => 'FEBRUARI',
+            '3' => 'MARET',
+            '4' => 'APRIL',
+            '5' => 'MEI',
+            '6' => 'JUNI',
+            '7' => 'JULI',
+            '8' => 'AGUSTUS',
+            '9' => 'SEPTEMBER',
+            '10' => 'OKTOBER',
+            '11' => 'NOVEMBER',
+            '12' => 'DESEMBER'
+        ];
+
+        $pisah = explode('-', $tanggal);
+        $namabulan = $pisah[1];
+
+        return $bulan[$namabulan];
+    }
 }
