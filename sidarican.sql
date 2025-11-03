@@ -257,3 +257,5 @@ ALTER TABLE `pembelian_bbm` ADD id_kendaraan int(11) NOT NULL;
 ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */
 ;
+
+ALTER TABLE 'data_kendaraan' ADD COLUMN gambar_subsidi varchar(255);
