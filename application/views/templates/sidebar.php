@@ -89,7 +89,7 @@
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="<?= base_url('service/perawatan') ?>" class="nav-link">
+                                            <a href="<?= base_url('perawatan') ?>" class="nav-link">
                                                 <i class="far fa-gear nav-icon"></i>
                                                     <p>Perawatan Kendaraan</p>
                                                 </i>
