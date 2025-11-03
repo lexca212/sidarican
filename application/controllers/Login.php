@@ -46,5 +46,36 @@ class Login extends CI_Controller
             </script>";
         };
     }
+
+    public function buatuser()
+    {
+
+        $data['title'] = 'judul';
+        $data['user']   = 'hanya admin';
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('buatuser');
+        $this->load->view('templates/footer');
+
+        
+    }
+
+    public function simpanuser(){
+        $nama = $this->input->post('nama');
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+
+        $data = [
+            'nama' => $nama,
+            'username' => $username,
+            'password' => md5($password)
+        ];
+
+        $this->M_login->simpanuser($data);
+
+        echo "<script>alert('Berhasi;');
+            window.location.href='" . site_url('dashboard') . "';
+            </script>";
+    }
 }
 ?>
