@@ -97,7 +97,7 @@
                                             </a>
                                         </li>
                                          <li class="nav-item">
-                                            <a href="<?= base_url('service/perawatan') ?>" class="nav-link">
+                                            <a href="<?= base_url('gantioli') ?>" class="nav-link">
                                                 <i class="far fa-automobile nav-icon"></i>
                                                 <p>Ganti Oli</p>
                                             </a>
