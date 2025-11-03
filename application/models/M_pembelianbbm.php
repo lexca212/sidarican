@@ -25,6 +25,10 @@ class M_pembelianbbm extends CI_Model {
         return $query->result();
     }
 
+    public function data_kendaraan(){
+        return $this->db->get('data_kendaraan')->result();
+    }
+
 
 }
 
