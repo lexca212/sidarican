@@ -259,3 +259,37 @@ ALTER TABLE `pembelian_bbm` ADD id_kendaraan int(11) NOT NULL;
 ;
 
 ALTER TABLE 'data_kendaraan' ADD COLUMN gambar_subsidi varchar(255);
+
+
+--
+-- Struktur dari tabel `perawatan_kendaraan`
+--
+
+CREATE TABLE `perawatan_kendaraan` (
+    `id_perawatan` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `keterangan` varchar(255) NOT NULL,
+    `tgl_perawatan` date NOT NULL,
+    `biaya` VARCHAR(50) NOT NULL,
+    `id_kendaraan` int(11) NOT NULL,
+    FOREIGN KEY (id_kendaraan) REFERENCES data_kendaraan (`id_kendaraan`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `data_kendaraan`
+--
+
+INSERT INTO
+    `perawatan_kendaraan` (
+        `id_perawatan`,
+        `keterangan`,
+        `tgl_perawatan`,
+        `biaya`,
+        `id_kendaraan`
+    )
+VALUES (
+        1,
+        'Ganti Kenalpot Brong ben sangar josjis boloooo',
+        '17-08-1945',
+        '2500000',
+        1
+    );
