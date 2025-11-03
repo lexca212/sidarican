@@ -65,4 +65,25 @@ class Perawatan extends CI_Controller {
 
         redirect('perawatan');
     }
+
+    public function hapus($id)
+    {
+        $delete = $this->db->where('id_perawatan', $id)->delete('perawatan_kendaraan');
+
+        if($delete) {
+            $this->session->set_flashdata('notif', [
+                'type' => 'success',
+                'message' => 'Data perawatan berhasil dihapus!'
+            ]);
+        } else {
+            $this->session->set_flashdata('notif', [
+                'type' => 'error',
+                'message' => 'Gagal menghapus data perawatan!'
+            ]);
+        }
+        
+        
+        redirect('perawatan');
+    
+    }
 }

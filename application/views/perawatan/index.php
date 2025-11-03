@@ -26,9 +26,10 @@
                           <a href="#" class="btn btn-warning btn-sm">
                               <i class="far fa-edit"></i>
                           </a> |
-                          <a href="" class="btn btn-danger btn-sm">
+                          <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-hapus" data-url="<?= base_url('perawatan/hapus/') . $p->id_perawatan ?>">
                               <i class="fa fa-trash"></i>
                           </a>
+
                         </td>
                     </tr>
                 <?php } ?>
@@ -52,3 +53,30 @@
         });
     </script>
 <?php } ?>
+
+<!-- jQuery -->
+<script src="<?= base_url('assets/template') ?>/plugins/jquery/jquery.min.js"></script>
+
+<script>
+$(document).on('click', '.btn-hapus', function(e){
+    e.preventDefault(); // cegah langsung menuju link
+
+    var url = $(this).attr("data-url");
+
+    Swal.fire({
+        title: 'Yakin ingin menghapus data ini?',
+        text: "Data yang sudah dihapus tidak bisa dikembalikan!",
+        icon: 'warning',
+        showCancelButton: true,
+        cancelButtonColor: '#E0A800',
+        confirmButtonColor: '#d33',
+        cancelButtonText: 'Batal',
+        confirmButtonText: 'Ya, hapus!',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Redirect manual ke URL penghapusan
+            window.location.href = url;
+        }
+    });
+});
+</script>
