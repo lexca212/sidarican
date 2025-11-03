@@ -122,9 +122,9 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="<?= base_url('cctv/pantauan')?>" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
-                                                <p>Pantauan CCTV</p>
+                                            <a href="<?= base_url('login/buatuser')?>" class="nav-link">
+                                                <i class="far fa-user nav-icon"></i>
+                                                <p>Tambah User</p>
                                             </a>
                                         </li>
                                     </ul>
