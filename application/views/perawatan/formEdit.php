@@ -6,26 +6,27 @@
     <!-- form start -->
     <form role="form" method="post" action="<?= site_url('perawatan/simpan') ?> ">
         <div class="card-body">
+            <input type="text" name="id_perawatan" id="id_perawatan" value="<?= $perawatan->id_perawatan ?>" hidden>
             <div class="form-group">
                 <label for="id_kendaraan">Kendaraan</label>
                 <select name="id_kendaraan" id="id_kendaraan" class="form-control">
                 <option value="" selected disabled>-- Pilih Kendaraan --</option>
                 <?php foreach($kendaraan as $k): ?>
-                  <option value="<?= $k->id_kendaraan ?>" data-id_kendaraan="<?= $k->id_kendaraan ?>"><?= $k->nm_kendaraan ?> - <?= $k->merk_kendaraan ?></option>
-                  <?php endforeach; ?>
+                  <option value="<?= $k->id_kendaraan ?>" <?= ($k->id_kendaraan == $perawatan->id_kendaraan) ? 'selected' : '' ?>><?= $k->nm_kendaraan ?> - <?= $k->merk_kendaraan ?></option>
+                <?php endforeach; ?>
                 </select>
             </div>
             <div class="form-group">
                 <label for="tgl_perawatan">Tanggal Perjalanan</label>
-                <input type="date" class="form-control" name="tgl_perawatan" id="tgl_perawatan" placeholder="Tanggal Perawatan" >
+                <input type="date" value="<?= $perawatan->tgl_perawatan ?>" class="form-control" name="tgl_perawatan" id="tgl_perawatan" placeholder="Tanggal Perawatan" >
             </div>
             <div class="form-group">
                 <label for="biaya">Biaya</label>
-                <input type="number" class="form-control" name="biaya" id="biaya" placeholder="Biaya Perawatan Kendaraan">
+                <input type="number" value="<?= $perawatan->biaya ?>" class="form-control" name="biaya" id="biaya" placeholder="Biaya Perawatan Kendaraan">
             </div>
             <div class="form-group">
                 <label for="keterangan">Keterangan</label>
-                <textarea class="form-control" name="keterangan" id="keterangan"></textarea>
+                <textarea class="form-control" value="<?= $perawatan->biaya ?>" name="keterangan" id="keterangan"><?= $perawatan->keterangan ?></textarea>
             </div>
         </div>
         <div class="card-footer">
