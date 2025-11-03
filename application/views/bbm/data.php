@@ -24,7 +24,7 @@
                 <?php foreach ($pembelianbbm as $p){?>
                 <tr>
                     <td><?= $p->tanggal_beli; ?></td>
-                    <td><?= $p->nm_kendaraan ?>, <?= $p->merk_kendaraan ?> (<?= $p->nopol_kendaraan ?>)</td>
+                    <td><?= $p->nm_kendaraan ?>,<br>(<?= strtoupper($p->nopol_kendaraan) ?>)</td>
                     <td><?= $p->nama_bbm; ?></td>
                     <td><?= $p->harga_bbm; ?></td>
                     <td><?= $p->jml_liter_bbm ?></td>
