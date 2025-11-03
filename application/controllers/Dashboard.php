@@ -110,6 +110,11 @@ class Dashboard extends CI_Controller {
 
             public function hapus($id){
                 $this->M_dashboard->hapus($id);
+                $this->session->set_flashdata('notif', [
+                'type' => 'success',
+                'message' => 'Data kendaraan berhasil dihapus!'
+            ]);
+                
                 redirect('dashboard');
             }
         
