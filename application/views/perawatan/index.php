@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <a href="<?= site_url('perjalanan/tambah') ?>" class="btn btn-primary btn-sm">Tambah Data</a>
+        <a href="<?= site_url('perawatan/tambah') ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tambah Data</a>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
