@@ -293,3 +293,37 @@ VALUES (
         '2500000',
         1
     );
+
+
+--
+-- Struktur dari tabel `ganti_oli`
+--
+
+CREATE TABLE `ganti_oli` (
+    `id_ganti_oli` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `keterangan` varchar(255) NOT NULL,
+    `tgl_ganti` date NOT NULL,
+    `biaya` VARCHAR(50) NOT NULL,
+    `id_kendaraan` int(11) NOT NULL,
+    FOREIGN KEY (id_kendaraan) REFERENCES data_kendaraan (`id_kendaraan`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `data_kendaraan`
+--
+
+INSERT INTO
+    `ganti_oli` (
+        `id_ganti_oli`,
+        `keterangan`,
+        `tgl_ganti`,
+        `biaya`,
+        `id_kendaraan`
+    )
+VALUES (
+        1,
+        'Oline asat bossss, garing sringggggg.....',
+        '1945-08-17',
+        '2500000',
+        1
+    );
