@@ -23,7 +23,7 @@
                         <td><?= $p->keterangan; ?></td>
                         <td>Rp <?= $p->biaya ?></td>
                         <td class="text-center">
-                          <a href="<?= base_url('perawatan/edit/') . $p->id_perawatan ?>" class="btn btn-warning btn-sm">
+                          <a href="#" class="btn btn-warning btn-sm">
                               <i class="far fa-edit"></i>
                           </a> |
                           <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-hapus" data-url="<?= base_url('perawatan/hapus/') . $p->id_perawatan ?>">
@@ -59,7 +59,7 @@
 
 <script>
 $(document).on('click', '.btn-hapus', function(e){
-    e.preventDefault();
+    e.preventDefault(); // cegah langsung menuju link
 
     var url = $(this).attr("data-url");
 
@@ -74,6 +74,7 @@ $(document).on('click', '.btn-hapus', function(e){
         confirmButtonText: 'Ya, hapus!',
     }).then((result) => {
         if (result.isConfirmed) {
+            // Redirect manual ke URL penghapusan
             window.location.href = url;
         }
     });

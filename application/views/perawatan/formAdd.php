@@ -33,3 +33,62 @@
         </div>
     </form>
 </div>
+
+<script src="<?= base_url('assets/template') ?>/plugins/jquery/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $('#id_kendaraan').change(function(){
+        
+        var id_kendaraan = $(this).val();
+        // var id_kendaraan = $(this).attr("data-id_kendaraan");
+
+        var site = '<?= site_url('perjalanan/get_km_akhir') ?>';
+        console.log(id_kendaraan);
+        console.log(site);
+        if(id_kendaraan != ''){
+            $.ajax({
+                url: site,
+                type: 'POST',
+                data: {id_kendaraan: id_kendaraan},
+                dataType: 'json',
+                success: function(response){
+                    if(response.status == 'success'){
+                        $('#km_awal').val(response.km_akhir);
+                    } else {
+                        $('#km_awal').val(0);
+                    }
+                }
+            });
+        } else {
+            $('#km_awal').val('');
+        }
+    });
+});
+</script>
+<script>
+document.getElementById('km_akhir').addEventListener('blur', function() {
+    let kmAwal = parseFloat(document.getElementById('km_awal').value) || 0;
+    let kmAkhir = parseFloat(this.value) || 0;
+
+    if (kmAkhir < kmAwal) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Input tidak valid',
+            text: 'Kilometer Akhir tidak boleh lebih kecil dari Kilometer Awal!',
+        });
+        this.value = ''; 
+    }
+});
+</script>
+<script>
+$(document).ready(function(){
+    $('#vis_km_awal').change(function(){
+        if($(this).is(':checked')){
+            $('#km_awal').prop('readonly', false);
+        } else {
+            $('#km_awal').prop('readonly', true);
+        }
+    });
+});
+</script>
