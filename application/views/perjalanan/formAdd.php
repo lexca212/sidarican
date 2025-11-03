@@ -8,11 +8,11 @@
         <div class="card-body">
             <div class="form-group">
                 <label for="tujuan">Tujuan</label>
-                <input type="text" class="form-control" name="tujuan" id="tujuan" placeholder="Tujuan Perjalanan">
+                <input type="text" class="form-control" name="tujuan" id="tujuan" placeholder="Tujuan Perjalanan" required>
             </div>
             <div class="form-group">
                 <label for="id_kendaraan">Kendaraan</label>
-                <select name="id_kendaraan" id="id_kendaraan" class="form-control">
+                <select name="id_kendaraan" id="id_kendaraan" class="form-control" required>
                   <option value="" selected disabled>-- Pilih Kendaraan --</option>
                   <?php foreach($kendaraan as $k): ?>
                     <option value="<?= $k->id_kendaraan ?>" data-id_kendaraan="<?= $k->id_kendaraan ?>"><?= $k->nm_kendaraan ?> - <?= $k->merk_kendaraan ?></option>
@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label for="km_awal">Kilometer Awal</label>
-                <input type="number" class="form-control" name="km_awal" id="km_awal" placeholder="Kilometer Awal Sebelum Perjalanan" readonly>
+                <input type="number" class="form-control" name="km_awal" id="km_awal" placeholder="Kilometer Awal Sebelum Perjalanan" readonly required>
                 <div class="form-group">
                     <input style="width: 18px; height: 18px; margin-top: 8px" type="checkbox" name="vis_km_awal" id="vis_km_awal">
                     <span for="vis_km_awal" style="font-size: 12px;">check untuk edit KM awal</span>
@@ -29,11 +29,11 @@
             </div>
             <div class="form-group">
                 <label for="km_akhir">Kilometer Akhir</label>
-                <input type="number" class="form-control" name="km_akhir" id="km_akhir" placeholder="Kilometer Akhir Setelah Perjalanan">
+                <input type="number" class="form-control" name="km_akhir" id="km_akhir" placeholder="Kilometer Akhir Setelah Perjalanan" required>
             </div>
             <div class="form-group">
                 <label for="tgl_perjalanan">Tanggal Perjalanan</label>
-                <input type="datetime-local" class="form-control" name="tgl_perjalanan" id="tgl_perjalanan" placeholder="Tanggal Perjalanan" >
+                <input type="datetime-local" class="form-control" name="tgl_perjalanan" id="tgl_perjalanan" placeholder="Tanggal Perjalanan" required>
             </div>
         </div>
         <div class="card-footer">

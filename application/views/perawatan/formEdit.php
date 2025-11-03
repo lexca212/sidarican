@@ -6,10 +6,10 @@
     <!-- form start -->
     <form role="form" method="post" action="<?= site_url('perawatan/simpan') ?> ">
         <div class="card-body">
-            <input type="text" name="id_perawatan" id="id_perawatan" hidden value="<?= $perawatan->id_perawatan ?>">
+            <input type="text" name="id_perawatan" id="id_perawatan" hidden value="<?= $perawatan->id_perawatan ?>" required>
             <div class="form-group">
                 <label for="id_kendaraan">Kendaraan</label>
-                <select name="id_kendaraan" id="id_kendaraan" class="form-control">
+                <select name="id_kendaraan" id="id_kendaraan" class="form-control" required>
                 <option value="" selected disabled>-- Pilih Kendaraan --</option>
                 <?php foreach($kendaraan as $k): ?>
                   <option value="<?= $k->id_kendaraan ?>" <?= ($k->id_kendaraan== $perawatan->id_kendaraan) ? 'selected' : '' ?> ><?= $k->nm_kendaraan ?> - <?= $k->merk_kendaraan ?></option>
@@ -17,12 +17,12 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="tgl_perawatan">Tanggal Perjalanan</label>
-                <input type="date" value="<?= $perawatan->tgl_perawatan ?>" class="form-control" name="tgl_perawatan" id="tgl_perawatan" placeholder="Tanggal Perawatan" >
+                <label for="tgl_perawatan">Tanggal Perawatan/Service</label>
+                <input type="date" value="<?= $perawatan->tgl_perawatan ?>" class="form-control" name="tgl_perawatan" id="tgl_perawatan" placeholder="Tanggal Perawatan" required>
             </div>
             <div class="form-group">
                 <label for="biaya">Biaya</label>
-                <input type="number" value="<?= $perawatan->biaya ?>" class="form-control" name="biaya" id="biaya" placeholder="Biaya Perawatan Kendaraan">
+                <input type="number" value="<?= $perawatan->biaya ?>" class="form-control" name="biaya" id="biaya" placeholder="Biaya Perawatan Kendaraan" required>
             </div>
             <div class="form-group">
                 <label for="keterangan">Keterangan</label>

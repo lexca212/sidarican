@@ -8,7 +8,7 @@
         <div class="card-body">
           <div class="form-group">
             <label for="id_kendaraan">Kendaraan</label>
-            <select name="id_kendaraan" id="id_kendaraan" class="form-control">
+            <select name="id_kendaraan" id="id_kendaraan" class="form-control" required>
               <option value="" selected disabled>-- Pilih Kendaraan --</option>
               <?php foreach($kendaraan as $k): ?>
                 <option value="<?= $k->id_kendaraan ?>" data-id_kendaraan="<?= $k->id_kendaraan ?>"><?= $k->nm_kendaraan ?> - <?= $k->merk_kendaraan ?></option>
@@ -17,11 +17,11 @@
             </div>
             <div class="form-group">
                 <label for="tanggal_beli">Tanggal Pembelian BBM</label>
-                <input type="date" class="form-control" name="tanggal_beli" id="tanggal_beli">
+                <input type="date" class="form-control" name="tanggal_beli" id="tanggal_beli" required>
             </div>
             <div class="form-group">
                 <label for="jenis_bbm">Jenis BBM</label>
-                <select name="jenis_bbm" id="jenis_bbm" class="form-control">
+                <select name="jenis_bbm" id="jenis_bbm" class="form-control" required>
                   <option value="" selected disabled>-- Pilih BBM --</option>
                   <?php foreach($bbm as $b): ?>
                     <option value="<?= $b->kd_bbm ?>"><?= $b->nama_bbm ?></option>
@@ -30,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label for="harga_bbm">Harga BBM / liter</label>
-                <input type="number" class="form-control" name="harga_bbm" id="harga_bbm" placeholder="Harga menyesuaikan jenis BBM" readonly>
+                <input type="number" class="form-control" name="harga_bbm" id="harga_bbm" placeholder="Harga menyesuaikan jenis BBM" readonly required>
                 <div class="form-group">
                     <input style="width: 18px; height: 18px; margin-top: 8px" type="checkbox" name="vis_harga_bbm" id="vis_harga_bbm">
                     <span for="vis_harga_bbm" style="font-size: 12px;">check untuk edit harga BBM</span>
@@ -38,11 +38,11 @@
             </div>
             <div class="form-group">
                 <label for="jml_liter_bbm">Jumlah Beli (liter)</label>
-                <input type="number" class="form-control" name="jml_liter_bbm" id="jml_liter_bbm" placeholder="Beli berapa liter ?">
+                <input type="number" class="form-control" name="jml_liter_bbm" id="jml_liter_bbm" placeholder="Beli berapa liter ?" required>
             </div>
             <div class="form-group">
                 <label for="jml_harga_bbm">Total Harga Beli</label>
-                <input type="text" class="form-control" name="jml_harga_bbm" id="jml_harga_bbm" placeholder="Tujuan Perjalanan" readonly>
+                <input type="text" class="form-control" name="jml_harga_bbm" id="jml_harga_bbm" placeholder="Tujuan Perjalanan" readonly required>
             </div>
         </div>
         <div class="card-footer">
