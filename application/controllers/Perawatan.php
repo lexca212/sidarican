@@ -16,6 +16,7 @@ class Perawatan extends CI_Controller {
         $data['perawatan'] = $this->M_perawatan->ambil_data();
         $data['title'] = 'Data Perawatan Kendaraan';
         $data['user'] = $this->session->userdata('nama');
+        $data['role'] = $this->session->userdata('role');
         
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar', $data);
@@ -72,6 +73,7 @@ class Perawatan extends CI_Controller {
 
     public function hapus($id)
     {
+        is_admin();
         $delete = $this->db->where('id_perawatan', $id)->delete('perawatan_kendaraan');
 
         if($delete) {
@@ -93,14 +95,15 @@ class Perawatan extends CI_Controller {
 
     public function edit($id)
     {
-      $data['kendaraan'] = $this->M_dashboard->ambil_data();
-      $data['perawatan'] = $this->db->get_where('perawatan_kendaraan', ['id_perawatan' => $id])->row();
-      $data['title'] = 'Edit Data Perawatan';
-      $data['user'] = $this->session->userdata('nama');
+        is_admin();
+        $data['kendaraan'] = $this->M_dashboard->ambil_data();
+        $data['perawatan'] = $this->db->get_where('perawatan_kendaraan', ['id_perawatan' => $id])->row();
+        $data['title'] = 'Edit Data Perawatan';
+        $data['user'] = $this->session->userdata('nama');
 
-      $this->load->view('templates/header');
-      $this->load->view('templates/sidebar', $data);
-      $this->load->view('perawatan/formEdit', $data);
-      $this->load->view('templates/footer');
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('perawatan/formEdit', $data);
+        $this->load->view('templates/footer');
     }
 }

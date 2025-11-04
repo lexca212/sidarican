@@ -11,7 +11,9 @@
                     <th>Kendaraan</th>
                     <th>Keterangan</th>
                     <th>Biaya</th>
+                    <?php if ($role === 'admin') { ?>
                     <th class="col-2 ">Aksi</th>
+                    <?php } ?>
                 </tr>
             </thead>
 
@@ -22,15 +24,17 @@
                         <td><?= $g->nm_kendaraan; ?>, (<?= $g->nopol_kendaraan ?>)</td>
                         <td><?= $g->keterangan; ?></td>
                         <td>Rp <?= $g->biaya ?></td>
-                        <td class="text-center">
-                          <a href="<?= base_url('gantioli/edit/') . $g->id_ganti_oli ?>" class="btn btn-warning btn-sm">
-                              <i class="far fa-edit"></i>
-                          </a> |
-                          <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-hapus" data-url="<?= base_url('gantioli/hapus/'. $g->id_ganti_oli) ?>">
-                              <i class="fa fa-trash"></i>
-                          </a>
-
-                        </td>
+                        <?php if ($role === 'admin') { ?>
+                            <td class="text-center">
+                                <a href="<?= base_url('gantioli/edit/') . $g->id_ganti_oli ?>" class="btn btn-warning btn-sm">
+                                    <i class="far fa-edit"></i>
+                                </a> |
+                                <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-hapus" data-url="<?= base_url('gantioli/hapus/'. $g->id_ganti_oli) ?>">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                                
+                            </td>
+                        <?php } ?>
                     </tr>
                 <?php } ?>
             </tbody>

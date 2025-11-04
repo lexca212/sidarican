@@ -339,3 +339,5 @@ ALTER TABLE `perjalanan` ADD COLUMN id_user int(11) NOT NULL;
 ALTER TABLE `ganti_oli` DROP FOREIGN KEY ganti_oli_ibfk_1;
 
 ALTER TABLE `perawatan_kendaraan` DROP FOREIGN KEY `perawatan_kendaraan_ibfk_1`;
+
+ALTER TABLE `user` ADD COLUMN `role` enum('admin', 'user');

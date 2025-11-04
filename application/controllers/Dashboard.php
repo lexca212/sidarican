@@ -19,6 +19,7 @@ class Dashboard extends CI_Controller {
         $data['data'] = $this->M_dashboard->ambil_data();
         $data['title'] = 'Dashboard';
         $data['user'] = $this->session->userdata('nama');
+        $data['role'] = $this->session->userdata('role');
         
 
         $this->load->view('templates/header');

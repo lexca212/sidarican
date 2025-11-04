@@ -16,6 +16,7 @@ class GantiOli extends CI_Controller {
         $data['ganti_oli'] = $this->M_gantioli->ambil_data();
         $data['title'] = 'Data Penggantian Oli Kendaraan';
         $data['user'] = $this->session->userdata('nama');
+        $data['role'] = $this->session->userdata('role');
         
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar', $data);
@@ -72,6 +73,7 @@ class GantiOli extends CI_Controller {
 
     public function hapus($id)
     {
+        is_admin();
         $delete = $this->db->where('id_ganti_oli', $id)->delete('ganti_oli');
 
         if($delete) {

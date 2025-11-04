@@ -11,7 +11,9 @@
                     <th>Kendaraan</th>
                     <th>Keterangan</th>
                     <th>Biaya</th>
+                    <?php if ($role === 'admin') { ?>
                     <th class="col-2 ">Aksi</th>
+                    <?php } ?>
                 </tr>
             </thead>
 
@@ -22,15 +24,17 @@
                         <td><?= $p->nm_kendaraan; ?>, (<?= $p->nopol_kendaraan ?>)</td>
                         <td><?= $p->keterangan; ?></td>
                         <td>Rp <?= $p->biaya ?></td>
-                        <td class="text-center">
-                          <a href="<?= base_url('perawatan/edit/') . $p->id_perawatan ?>" class="btn btn-warning btn-sm">
-                              <i class="far fa-edit"></i>
-                          </a> |
-                          <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-hapus" data-url="<?= base_url('perawatan/hapus/') . $p->id_perawatan ?>">
-                              <i class="fa fa-trash"></i>
-                          </a>
-
-                        </td>
+                        <?php if ($role === 'admin') { ?>
+                            <td class="text-center">
+                                <a href="<?= base_url('perawatan/edit/') . $p->id_perawatan ?>" class="btn btn-warning btn-sm">
+                                    <i class="far fa-edit"></i>
+                                </a> |
+                                <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-hapus" data-url="<?= base_url('perawatan/hapus/') . $p->id_perawatan ?>">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                                
+                            </td>
+                        <?php } ?>
                     </tr>
                 <?php } ?>
             </tbody>

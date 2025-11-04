@@ -35,6 +35,7 @@ class Login extends CI_Controller
                 'id_user' => $user->id_user,
                 'username' => $user->username,
                 'nama' => $user->nama,
+                'role' => $user->role,
                 'logged_in' => true
 
             ]);
@@ -49,7 +50,7 @@ class Login extends CI_Controller
 
     public function buatuser()
     {
-
+        is_admin();
         $data['title'] = 'judul';
         $data['user']   = 'hanya admin';
         $this->load->view('templates/header');
@@ -61,6 +62,7 @@ class Login extends CI_Controller
     }
 
     public function simpanuser(){
+        is_admin();
         $nama = $this->input->post('nama');
         $username = $this->input->post('username');
         $password = $this->input->post('password');
@@ -76,6 +78,11 @@ class Login extends CI_Controller
         echo "<script>alert('Berhasi;');
             window.location.href='" . site_url('dashboard') . "';
             </script>";
+    }
+
+    public function blocked()
+    {
+        $this->load->view('index.html');
     }
 }
 ?>
