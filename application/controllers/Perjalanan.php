@@ -56,13 +56,15 @@ class Perjalanan extends CI_Controller {
         $km_akhir = $this->input->post('km_akhir');
         $tgl_perjalanan = $this->input->post('tgl_perjalanan');
         $id_kendaraan = $this->input->post('id_kendaraan');
+        $id_user = $data['user'] = $this->session->userdata('id_user');
 
         $data = array(
             'tujuan' => $tujuan,
             'km_awal' => $km_awal,
             'km_akhir' => $km_akhir,
             'tgl_perjalanan' => $tgl_perjalanan,
-            'id_kendaraan' => $id_kendaraan
+            'id_kendaraan' => $id_kendaraan,
+            'id_user' => $id_user
         );
 
         $insert = $this->db->insert('perjalanan', $data);
