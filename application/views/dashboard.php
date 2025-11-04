@@ -39,7 +39,7 @@
                             <a href="#" class="btn btn-secondary btn-sm">
                                 <i class="far fa-edit"></i>
                             </a>
-                            <a href="<?= base_url('dashboard/hapus/') . $d->id_kendaraan ?>" class="btn btn-warning btn-sm">
+                            <a href="javascript:void(0);" data-url='<?= base_url('dashboard/hapus/') . $d->id_kendaraan ?>' class="btn btn-warning btn-sm btn-hapus">
                                 <i class="fa fa-trash"></i>
                             </a>
 
@@ -67,3 +67,28 @@
         });
     </script>
 <?php } ?>
+
+<!-- jQuery -->
+<script src="<?= base_url('assets/template') ?>/plugins/jquery/jquery.min.js"></script>
+
+<script>
+$(document).on('click', '.btn-hapus', function(e){
+    e.preventDefault();
+    var url = $(this).attr("data-url");
+
+    Swal.fire({
+        title: 'Yakin ingin menghapus data ini?',
+        text: "Data yang sudah dihapus tidak bisa dikembalikan!",
+        icon: 'warning',
+        showCancelButton: true,
+        cancelButtonColor: '#E0A800',
+        confirmButtonColor: '#d33',
+        cancelButtonText: 'Batal',
+        confirmButtonText: 'Ya, hapus!',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = url;
+        }
+    });
+});
+</script>
