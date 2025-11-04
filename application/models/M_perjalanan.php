@@ -37,6 +37,19 @@ class M_perjalanan extends CI_Model
           return 0; 
       }
   }
+
+  public function get_detail_perjalanan($id) {
+    $this->db->select("
+        perjalanan.*,
+        user.*",
+        FALSE);
+    $this->db->from('perjalanan');
+    $this->db->join('user', 'perjalanan.id_user = user.id_user');
+    $this->db->where('perjalanan.id_perjalanan', $id);
+
+    $query = $this->db->get();
+    return $query->result();
+  }
 }
 
 /* End of file Perjalanan.php */

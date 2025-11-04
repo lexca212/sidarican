@@ -12,7 +12,7 @@
                     <th>Nama Kendaraan</th>
                     <th>KM Awal</th>
                     <th>KM Akhir</th>
-                    <th>Tujuan</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
 
@@ -24,7 +24,9 @@
                         <td><?= $d->nm_kendaraan; ?>, <?= $d->merk_kendaraan ?></td>
                         <td><?= $d->km_awal ?></td>
                         <td> <?= $d->km_akhir ?></td>
-                        <td><?= $d->tujuan ?></td>
+                        <td class="text-center">
+                            <a href="<?= base_url('perjalanan/detail/') . $d->id_perjalanan ?>" class="btn btn-info btn-sm"><i class="fas fa-eye"> Detail</i></a>
+                        </td>
                     </tr>
                 <?php } ?>
             </tbody>

@@ -16,9 +16,6 @@ class Perjalanan extends CI_Controller {
         $data['title'] = 'Data Perjalanan';
         $data['user'] = $this->session->userdata('nama');
 
-        // var_dump($data);
-        // die(); // Debugging line to check data
-
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar', $data);
         $this->load->view('perjalanan/index', $data);
@@ -83,6 +80,29 @@ class Perjalanan extends CI_Controller {
         }
 
         redirect('perjalanan/data');
+    }
+
+    public function detail($id) 
+    {
+        // $data['perjalanan'] = $this->M_perjalanan->get_detail_perjalanan($id);
+        $data['perjalanan'] = $this->db->get_where('perjalanan', ['id_perjalanan' => $id])->row();
+
+        $id_user = $data['perjalanan']->id_user;
+        $data['pengguna'] = $this->db->get_where('user', ['id_user' => $id_user])->row();
+
+        $id_kendaraan = $data['perjalanan']->id_kendaraan;
+        $data['kendaraan'] = $this->db->get_where('data_kendaraan', ['id_kendaraan' => $id_kendaraan])->row();
+
+        $data['title'] = 'Data Detail Perjalanan';
+        $data['user'] = $this->session->userdata('nama');
+
+
+
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('perjalanan/detail', $data);
+        $this->load->view('templates/footer'); 
     }
 }
 ?>
