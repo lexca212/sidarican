@@ -105,4 +105,22 @@ $(document).ready(function(){
     });
 });
 </script>
+<script>
+document.getElementById('tanggal_beli').addEventListener('blur', function() {
+    const inputTanggal = new Date(this.value);
+    const sekarang = new Date();
+
+    inputTanggal.setHours(0, 0, 0, 0);
+    sekarang.setHours(0, 0, 0, 0);
+
+    if (inputTanggal > sekarang) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Tanggal tidak valid',
+            text: 'Tanggal pembelian BBM tidak boleh melebihi tanggal hari ini!',
+        });
+        this.value = "";
+    }
+});
+</script>
 

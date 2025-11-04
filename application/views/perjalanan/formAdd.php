@@ -100,3 +100,21 @@ $(document).ready(function(){
     });
 });
 </script>
+<script>
+document.getElementById('tgl_perjalanan').addEventListener('blur', function() {
+    const inputTanggal = new Date(this.value);
+    const sekarang = new Date();
+
+    inputTanggal.setHours(0, 0, 0, 0);
+    sekarang.setHours(0, 0, 0, 0);
+
+    if (inputTanggal > sekarang) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Tanggal tidak valid',
+            text: 'Tanggal perjalanan tidak boleh melebihi tanggal hari ini!',
+        });
+        this.value = "";
+    }
+});
+</script>
