@@ -327,3 +327,10 @@ VALUES (
         '2500000',
         1
     );
+
+
+--
+-- id_user untuk table `perjalanan`
+--
+
+ALTER TABLE `perjalanan` ADD COLUMN id_user int(11) NOT NULL;
