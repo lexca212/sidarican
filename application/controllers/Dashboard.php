@@ -41,7 +41,7 @@ class Dashboard extends CI_Controller
         $this->load->view('Dashboard/tambahdata', $data);
         $this->load->view('templates/footer');
     }
-    
+
 
     public function simpan()
     {
@@ -56,14 +56,14 @@ class Dashboard extends CI_Controller
 
         if ($gambar)
 
-        $data = [
-            'nm_kendaraan' => $nm_kendaraan,
-            'merk_kendaraan' => $merk_kendaraan,
-            'nopol_kendaraan' => $nopol_kendaraan,
-            'kd_bbm' => $kd_bbm,
-            'tahun_kendaraan' => $tahun_kendaraan,
-            'gambar_subsidi' => $gambar
-        ];
+            $data = [
+                'nm_kendaraan' => $nm_kendaraan,
+                'merk_kendaraan' => $merk_kendaraan,
+                'nopol_kendaraan' => $nopol_kendaraan,
+                'kd_bbm' => $kd_bbm,
+                'tahun_kendaraan' => $tahun_kendaraan,
+                'gambar_subsidi' => $gambar
+            ];
 
         $exists = $this->db
             ->where('id_kendaraan', $id_kendaraan)
@@ -89,8 +89,8 @@ class Dashboard extends CI_Controller
         $config['upload_path']          = './uploads/kartu_subsidi';
         $config['allowed_types']        = 'gif|jpg|png|jpeg';
         $config['max_size']             = 10240;
-        $config['max_width']            = 1024;
-        $config['max_height']           = 768;
+        // $config['max_width']            = 1024;
+        // $config['max_height']           = 768;
         $config['encrypt_name']         = true;
 
         $this->load->library('upload', $config);
@@ -121,16 +121,32 @@ class Dashboard extends CI_Controller
 
     public function hapus($id)
     {
-        $this->M_dashboard->hapus($id);
-        $this->session->set_flashdata('notif', [
-            'type' => 'success',
-            'message' => 'Data kendaraan berhasil dihapus!'
-        ]);
+        $data = $this->M_dashboard->getById($id);
+
+        if ($data) {
+            $file_path = FCPATH . 'uploads/kartu_subsidi/' . $data->gambar_subsidi;
+
+            if (!empty($data->gambar_subsidi) && file_exists($file_path) && is_file($file_path)) {
+                unlink($file_path);
+            }
+
+            $this->M_dashboard->hapus($id);
+
+            $this->session->set_flashdata('notif', [
+                'type' => 'success',
+                'message' => 'Data kendaraan berhasil dihapus!'
+            ]);
+        } else {
+            $this->session->set_flashdata('notif', [
+                'type' => 'error',
+                'message' => 'Data kendaraan tidak ditemukan atau sudah dihapus.'
+            ]);
+        }
 
         redirect('dashboard');
     }
 
-    public function edit($id) 
+    public function edit($id)
     {
         $data['kendaraan'] = $this->db->get_where('data_kendaraan', ['id_kendaraan' => $id])->row();
         $data['user'] = $this->session->userdata('nama');

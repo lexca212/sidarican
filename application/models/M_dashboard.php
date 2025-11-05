@@ -36,6 +36,11 @@ class M_dashboard extends CI_Model
         )->delete('data_kendaraan');
     }
 
+    public function getById($id)
+    {
+        return $this->db->where('id_kendaraan', $id)->get('data_kendaraan')->row();
+    }
+
     public function update($id_kendaraan, $data)
     {
         return $this->db->where('id_kendaraan', $id_kendaraan)->update('data_kendaraan', $data);
