@@ -37,7 +37,7 @@
                 <label for="exampleInputFile">File input</label>
                 <div class="input-group">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="gambar" id="gambar">
+                        <input type="file" class="custom-file-input" name="gambar" id="gambar" required>
                         <label class="custom-file-label" for="gambar"></label>
                     </div>
                     <div class="input-group-append">

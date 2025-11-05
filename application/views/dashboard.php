@@ -39,7 +39,7 @@
                         </td>
                         <?php if ($role === 'admin') { ?>
                             <td>
-                                <a href="#" class="btn btn-secondary btn-sm">
+                                <a href="<?= base_url('dashboard/edit/') . $d->id_kendaraan ?>" class="btn btn-secondary btn-sm">
                                     <i class="far fa-edit"></i>
                                 </a>
                                 <a href="javascript:void(0);" data-url='<?= base_url('dashboard/hapus/') . $d->id_kendaraan ?>' class="btn btn-warning btn-sm btn-hapus">
